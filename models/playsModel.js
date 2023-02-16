@@ -39,6 +39,24 @@ class Play {
             return { status: 500, result: err };
         } 
     }
+
+    static async drawCard(game) {
+        try {
+            if (game.player.state.name != "Playing") {
+                return {status: 400, result:{msg: 
+                    "You cannot end turn since you are not currently on your turn"}}
+            }
+
+            
+            // Draw a card
+
+            return {status:200, result: {}};
+        } catch (err) {
+            console.log(err);
+            return { status: 500, result: err };
+        } 
+    }
+
 }
 
 module.exports = Play;
